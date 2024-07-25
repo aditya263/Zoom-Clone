@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Replace with your actual values from google-services.json -->
+    <string name="google_api_key">AIzaSyAMQneV3n_H7XtCYOXFEVJCyGclYtZVQ8E</string>
+    <string name="firebase_database_url">https://zoom-clone-abd53.firebaseio.com</string>
+    <string name="project_id">zoom-clone-abd53</string>
+    <string name="storage_bucket">zoom-clone-abd53.appspot.com</string>
+</resources>

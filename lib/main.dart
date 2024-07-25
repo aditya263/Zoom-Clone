@@ -6,7 +6,15 @@ import 'package:zoom_clone/utils/colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: 'AIzaSyAMQneV3n_H7XtCYOXFEVJCyGclYtZVQ8E',
+      appId: '1:111256109386:android:50fb1ea338c78384db41b3',
+      messagingSenderId: '111256109386',
+      projectId: 'zoom-clone-abd53',
+      storageBucket: 'zoom-clone-abd53.appspot.com',
+    ),
+  );
   runApp(const MyApp());
 }
 
