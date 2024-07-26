@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zoom_clone/screens/history_meeting_screen.dart';
+import 'package:zoom_clone/screens/meeting_screen.dart';
 import 'package:zoom_clone/utils/colors.dart';
 import 'package:zoom_clone/widgets/home_meeting_button.dart';
 
@@ -11,6 +13,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _pageIndex = 0;
+  List<Widget> pages = [
+    const MeetingScreen(),
+    const HistoryMeetingScreen(),
+    const Text('Contacts'),
+    const Text('Settings'),
+  ];
 
   onPageChanged(int page) {
     setState(() {
@@ -27,46 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Meet & Chat'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              HomeMeetingButton(
-                onPressed: () {},
-                icon: Icons.videocam,
-                text: 'New Meeting',
-              ),
-              HomeMeetingButton(
-                onPressed: () {},
-                icon: Icons.add_box_rounded,
-                text: 'Join Meeting',
-              ),
-              HomeMeetingButton(
-                onPressed: () {},
-                icon: Icons.calendar_today,
-                text: 'Schedule',
-              ),
-              HomeMeetingButton(
-                onPressed: () {},
-                icon: Icons.arrow_upward_rounded,
-                text: 'Share Screen',
-              ),
-            ],
-          ),
-          const Expanded(
-            child: Center(
-              child: Text(
-                'Create/Join Meetings with just a click',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+      body: pages[_pageIndex],
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           splashColor: Colors.transparent,
@@ -108,6 +77,56 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class HistoryMeeting extends StatelessWidget {
+  const HistoryMeeting({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            HomeMeetingButton(
+              onPressed: () {},
+              icon: Icons.videocam,
+              text: 'New Meeting',
+            ),
+            HomeMeetingButton(
+              onPressed: () {},
+              icon: Icons.add_box_rounded,
+              text: 'Join Meeting',
+            ),
+            HomeMeetingButton(
+              onPressed: () {},
+              icon: Icons.calendar_today,
+              text: 'Schedule',
+            ),
+            HomeMeetingButton(
+              onPressed: () {},
+              icon: Icons.arrow_upward_rounded,
+              text: 'Share Screen',
+            ),
+          ],
+        ),
+        const Expanded(
+          child: Center(
+            child: Text(
+              'Create/Join Meetings with just a click',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
