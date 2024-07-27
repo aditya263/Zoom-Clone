@@ -9,6 +9,7 @@ class JitsiMeetMethods {
     required String roomName,
     required bool isAudioMuted,
     required bool isVideoMuted,
+    String username = '',
   }) async {
     try {
       Map<String, Object> featureFlags = {
@@ -58,13 +59,15 @@ class JitsiMeetMethods {
         FeatureFlags.toolboxAlwaysVisible: true,
       };
       var options = JitsiMeetConferenceOptions(
+        serverURL: 'https://meet.jit.si/',
         room: roomName,
         configOverrides: {
           "startWithAudioMuted": isAudioMuted,
           "startWithVideoMuted": isVideoMuted,
         },
         userInfo: JitsiMeetUserInfo(
-          displayName: _authMethods.user.displayName,
+          displayName:
+              username.isEmpty ? _authMethods.user.displayName : username,
           email: _authMethods.user.email,
           avatar: _authMethods.user.photoURL,
         ),
