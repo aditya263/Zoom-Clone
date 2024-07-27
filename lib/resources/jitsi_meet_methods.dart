@@ -1,9 +1,11 @@
 import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
 import 'package:zoom_clone/resources/auth_methods.dart';
+import 'package:zoom_clone/resources/firestore_methods.dart';
 
 class JitsiMeetMethods {
   final AuthMethods _authMethods = AuthMethods();
   final _jitsiMeetPlugin = JitsiMeet();
+  final FirestoreMethods _firestoreMethods = FirestoreMethods();
 
   void createMeeting({
     required String roomName,
@@ -73,7 +75,7 @@ class JitsiMeetMethods {
         ),
         featureFlags: featureFlags,
       );
-
+      _firestoreMethods.addToMeetingHistory(roomName);
       await _jitsiMeetPlugin.join(options);
     } catch (error) {
       print("error: $error");
