@@ -23,10 +23,6 @@ Zoom Clone that works on Android & iOS!
 18. See Your Meeting History
 19. Log out
 
- :boom: Fwitter app now uses both firebase `realtime` and `firestore` database.:boom:
-* In branch **firetore** Fwitter uses `Firestore` database for app. 
-* In branch **Main** and **realtime_db** Fwitter uses `Firebase Realtime` database for app.
-
 ## Dependencies
 <details>
      <summary> Click to expand </summary>
