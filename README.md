@@ -23,6 +23,9 @@ Zoom Clone that works on Android & iOS!
 18. See Your Meeting History
 19. Log out
 
+## Getting started 
+* Project setup instructions are given at [Wiki](https://github.com/aditya263/Zoom-Clone/wiki/Getting%E2%80%90Started) section.
+
 ## Dependencies
 <details>
      <summary> Click to expand </summary>
